@@ -6,6 +6,7 @@ from src.logger import logging
 from src.exception import CustomException
 from dataclasses import dataclass
 from src.components.data_transformation import DataTransformation, DataTransformationConfig
+from src.components.model_trainer import ModelTrainer, ModelTrainerConfig
 
 @dataclass
 class DataIngestionConfig():
@@ -39,4 +40,6 @@ if __name__ == '__main__':
     ingestion_obj = DataIngestion()
     trainset,testset = ingestion_obj.initiate_data_ingestion()
     transformation_obj = DataTransformation()
-    transformation_obj.initiate_data_transformation(trainset,testset)
+    train_arr,test_arr = transformation_obj.initiate_data_transformation(trainset,testset)
+    model_trainer_object = ModelTrainer()
+    model_trainer_object.initiate_model_trainer(train_arr,test_arr)
