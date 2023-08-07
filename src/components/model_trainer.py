@@ -34,34 +34,34 @@ class ModelTrainer():
                                              test_array[:,:-1],test_array[:,-1])
 
             models = {
-                # "Decision Tree": DecisionTreeClassifier(),
-                # "AdaboostClassifier":AdaBoostClassifier(),
-                # "Gradient Boosting Classifier":GradientBoostingClassifier(verbose=1),
+                "Decision Tree": DecisionTreeClassifier(),
+                "AdaboostClassifier":AdaBoostClassifier(),
+                "Gradient Boosting Classifier":GradientBoostingClassifier(verbose=1),
                 "Random Forest Classifier":RandomForestClassifier(verbose=1),
-                # "Support Vector Machine":SVC(verbose=True),
-                # "K Nearest Neighbours":KNeighborsClassifier(),
-                # "Naive Bayes":GaussianNB(),
-                # "Catboost Classifier":CatBoostClassifier(verbose=1),
-                # "Logistic Regression": LogisticRegression(verbose=1),
-                # "XGBoost Classifier":XGBClassifier()
+                "Support Vector Machine":SVC(verbose=True),
+                "K Nearest Neighbours":KNeighborsClassifier(),
+                "Naive Bayes":GaussianNB(),
+                "Catboost Classifier":CatBoostClassifier(verbose=1),
+                "Logistic Regression": LogisticRegression(verbose=1),
+                "XGBoost Classifier":XGBClassifier()
             }
             params = {
-                # 'Logistic Regression':{
-                #     # 'penalty':['elasticnet','l1','l2']
-                # },
-                # 'Decision Tree':{
-                #     # 'max_depth':[10,20,30],
-                #     # 'min_samples_split':[2,5,10]
-                # },
-                # 'AdaboostClassifier':{
-                #     # 'n_estimators':[100,150,200],
-                #     # 'learning_rate':[0.1,0.01,0.001]
-                # },
-                # 'Gradient Boosting Classifier':{
-                #     # 'n_estimators':[100,150,200],
-                #     # 'max_depth':[10,20,30],
-                #     # 'learning_rate':[0.1,0.01,0.001]
-                # },
+                'Logistic Regression':{
+                    'penalty':['elasticnet','l1','l2']
+                },
+                'Decision Tree':{
+                    'max_depth':[10,20,30],
+                    'min_samples_split':[2,5,10]
+                },
+                'AdaboostClassifier':{
+                    'n_estimators':[100,150,200],
+                    'learning_rate':[0.1,0.01,0.001]
+                },
+                'Gradient Boosting Classifier':{
+                    'n_estimators':[100,150,200],
+                    'max_depth':[10,20,30],
+                    'learning_rate':[0.1,0.01,0.001]
+                },
                 'Random Forest Classifier':{
                     'n_estimators':[450],
                     'max_features':['log2'],
@@ -69,24 +69,24 @@ class ModelTrainer():
                     'min_samples_split':[3],
                     'min_samples_leaf':[8,10,12],
                     'criterion':['gini']
-                }
-                # 'Support Vector Machine':{
-                #     # 'kernel':['linear','poly','sigmoid','rbf'],
-                #     # 'gamma':['scale','auto']
-                # },
-                # 'K Nearest Neighbours':{
-                #     # 'metric':['euclidean']
-                # },
-                # 'Naive Bayes':{
+                },
+                'Support Vector Machine':{
+                    'kernel':['linear','poly','sigmoid','rbf'],
+                    'gamma':['scale','auto']
+                },
+                'K Nearest Neighbours':{
+                    'metric':['euclidean']
+                },
+                'Naive Bayes':{
 
-                # },
-                # 'Catboost Classifier':{
-                #     # 'learning_rate':[0.1,0.01,0.001],
-                #     # 'depth':[10,20,30],
-                #     # 'iterations':[100,150,200],
-                #     # 'l2_leaf_reg':[2,3,4]
-                # },
-                # "XGBoost Classifier":{}
+                },
+                'Catboost Classifier':{
+                    'learning_rate':[0.1,0.01,0.001],
+                    'depth':[10,20,30],
+                    'iterations':[100,150,200],
+                    'l2_leaf_reg':[2,3,4]
+                },
+                "XGBoost Classifier":{}
             }
 
             model_report:dict = evaluate_models(x_train,y_train,x_test,y_test,models,params)
